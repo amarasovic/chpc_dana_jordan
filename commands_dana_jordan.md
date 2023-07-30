@@ -163,16 +163,18 @@ To use it, you can run something like:
 
 ## Checking jobs 
 
-You can check the queue by running: `squeue` (for everything on CHPC).
+You can check the queue by running: `squeue` (for everything on CHPC). To see only your jobs in the queue you can run `squeue -u <your unid>`.
 
-To log into the nodes where the job runs, you need to check the job ID (it will be in the output of the `squeue`), and then run: 
+To log into the nodes where the job runs, you need to figure out the node on which  the job is running on (it will be in the output of the `squeue`),  shh to that node with
 
-`srun --jobid=jobID --pty /bin/bash -l`.
+`ssh <your unid>@node<number>`.
 
-If you want to see how GPU memory is utilized by running: 
+Check how GPU memory is utilized by running: 
 
 ```
 ml nvtop 
 nvtop
 ```
+
+If no GPU memory is being used that's a problem.
 
